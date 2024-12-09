@@ -6,28 +6,26 @@ import org.springframework.stereotype.Component;
 
 import com.bptn.feedAppAutomation.provider.factory.YamlPropertySourceFactory;
 
-
 @Component
 @PropertySource(value = "classpath:config.yml", factory = YamlPropertySourceFactory.class)
 public class ResourceProvider {
 
+	@Value("${test.url.backend}")
+	private String backEndUrl;
 
-    @Value("${test.url.backend}")
-    private String backEndUrl;
+	@Value("${test.url.frontend}")
+	private String frontEndUrl;
 
-    @Value("${test.url.frontend}")
-    private String frontEndUrl;
+	@Value("${test.browser}")
+	private String browser;
 
-    @Value("${test.browser}")
-    private String browser;
+	@Value("${test.default.timeout}")
+	private String timeout;
 
-    @Value("${test.default.timeout}")
-    private String timeout;
+	@Value("${jwt.secret}")
+	private String jwtSecret;
 
-    @Value("${jwt.secret}")
-    private String jwtSecret;
-
-    public String getBackEndUrl() {
+	public String getBackEndUrl() {
 		return backEndUrl;
 	}
 
@@ -64,15 +62,15 @@ public class ResourceProvider {
 	}
 
 	@Value("${jwt.expiration}")
-    private long jwtExpiration;
+	private long jwtExpiration;
 
-    @Value("${jwt.issuer}")
-    private String jwtIssuer;
+	@Value("${jwt.issuer}")
+	private String jwtIssuer;
 
-    @Value("${jwt.audience}")
-    private String jwtAudience;
+	@Value("${jwt.audience}")
+	private String jwtAudience;
 
-    @Value("${jwt.prefix}")
-    private String jwtPrefix;
+	@Value("${jwt.prefix}")
+	private String jwtPrefix;
 
 }

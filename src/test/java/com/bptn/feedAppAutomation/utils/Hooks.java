@@ -11,13 +11,13 @@ import io.cucumber.java.After;
 
 public class Hooks {
 
-    @Autowired
-    DriverManager driverManager;
+	@Autowired
+	DriverManager driverManager;
 
- @After("@WebTest")
- public void screenshot(Scenario scenario) {
-     byte[] screenshot = ((TakesScreenshot) this.driverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
-     scenario.attach(screenshot, "image/png", scenario.getName() + " Screenshot");
- }
+	@After("@WebTest")
+	public void screenshot(Scenario scenario) {
+		byte[] screenshot = ((TakesScreenshot) this.driverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+		scenario.attach(screenshot, "image/png", scenario.getName() + " Screenshot");
+	}
 
 }

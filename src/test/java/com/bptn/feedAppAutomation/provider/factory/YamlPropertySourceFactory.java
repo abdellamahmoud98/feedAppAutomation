@@ -14,18 +14,19 @@ import org.springframework.util.StringUtils;
 
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 
-    @Override
-    public PropertySource<?> createPropertySource(@Nullable String name, EncodedResource resource) throws IOException {
-        Properties loadedProperties = this.loadYamlIntoProperties(resource.getResource());
+	@Override
+	public PropertySource<?> createPropertySource(@Nullable String name, EncodedResource resource) throws IOException {
+		Properties loadedProperties = this.loadYamlIntoProperties(resource.getResource());
 
-        return new PropertiesPropertySource((StringUtils.hasLength(name)) ? name : resource.getResource().getFilename(), loadedProperties);
-    }
+		return new PropertiesPropertySource((StringUtils.hasLength(name)) ? name : resource.getResource().getFilename(),
+				loadedProperties);
+	}
 
-    private Properties loadYamlIntoProperties(Resource resource) {
-        YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
-        factory.setResources(resource);
-        factory.afterPropertiesSet();
+	private Properties loadYamlIntoProperties(Resource resource) {
+		YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean();
+		factory.setResources(resource);
+		factory.afterPropertiesSet();
 
-        return factory.getObject();
-    }
+		return factory.getObject();
+	}
 }

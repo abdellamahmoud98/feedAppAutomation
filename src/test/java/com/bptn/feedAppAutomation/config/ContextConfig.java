@@ -1,6 +1,5 @@
 package com.bptn.feedAppAutomation.config;
 
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
