@@ -84,5 +84,6 @@ public class BasePage {
 	    this.driverManager.getDriver()
 	                .findElement(this.xPathCropBtn)
 	                .click();
-	}
+
+		}
 }
